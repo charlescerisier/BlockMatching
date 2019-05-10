@@ -102,7 +102,7 @@ def getDistance(point1, point2):
 
 def weightedMean(block):
     """
-    fonction qui retourne 
+    Fonction qui retourne un bloc remplit avec des pixel qui sont basés sur les pixels réels
     """
     height = len(block)
     width = len(block[0])
