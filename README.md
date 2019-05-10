@@ -4,7 +4,7 @@
 
 L'objectif de ce TP est de comprendre et de réaliser la partie d'estimation de mouvement d'un encodeur vidéo. En effet, fichier vidéo possède une grande redondance statistique au niveau des données spatiales, mais aussi des données temporelles. Afin de faire une estimation de mouvement, nous avons réalisé, en partie, un algorithme de Block Matching. Ce programme a pour but d'encoder le mouvement dans une vidéo, en recherchant des blocs similaires entre différentes images. Cet algorithme de compensation de mouvement est utilisé dans certaines normes de compression vidéo comme le H.264 et MPEG-2. 
 
-![encodeur](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/encodeur.png)
+![encodeur](/imagesRapport/encodeur.png)
 
 Les vidéos utilisées lors de ce TP étaient des vidéos YUV non compressées. Le premier objectif était donc de lire les images avec Python 3. 
 Sachant que la résolution des images était de $288 \times 352$ et qu'elles étaient échantillonnées en 4:2:0, il était facile de déterminer la taille d'une image. 
