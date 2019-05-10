@@ -4,7 +4,7 @@
 
 L'objectif de ce TP est de comprendre et de réaliser la partie d'estimation de mouvement d'un encodeur vidéo. En effet, fichier vidéo possède une grande redondance statistique au niveau des données spatiales, mais aussi des données temporelles. Afin de faire une estimation de mouvement, nous avons réalisé, en partie, un algorithme de Block Matching. Ce programme a pour but d'encoder le mouvement dans une vidéo, en recherchant des blocs similaires entre différentes images. Cet algorithme de compensation de mouvement est utilisé dans certaines normes de compression vidéo comme le H.264 et MPEG-2. 
 
-![encodeur](D:\Documents\DSMT S8\Traitement_Video\Python\imagesRapport\encodeur.png)
+![encodeur](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/encodeur.png)
 
 Les vidéos utilisées lors de ce TP étaient des vidéos YUV non compressées. Le premier objectif était donc de lire les images avec Python 3. 
 Sachant que la résolution des images était de $288 \times 352$ et qu'elles étaient échantillonnées en 4:2:0, il était facile de déterminer la taille d'une image. 
@@ -25,7 +25,7 @@ Dans notre algorithme de Block Matching, seule la composante Y de l'image récup
 
 Afin de manipuler plus facilement et d'observer l'image Y  que nous venons de récupérer, on a reconstruit une image en 2 dimensions (2D).
 
-![image1_football](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/image1_football.png)
+![image1_football](/imagesRapport/image1_football.png)
 
 ## Block Matching 
 
@@ -45,11 +45,11 @@ Dans un premier temps, la recherche du meilleur bloc était réaliséé dans l'e
 
 Dans ce second algorithme, nous avons donc utilisé une fenêtre de recherche de $48 \times 48 \mbox{ pixels}$ autour du bloc courant en partant du principe que le mouvement n'a pas été trop important. Le temps de calcul pour tous les blocs est d'ici largement inférieur à l'algorithme précédent, environ 1 minute 30.
 
-![fenetre](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/fenetre.png)
+![fenetre](imagesRapport/fenetre.png)
 
 Pour chaque meilleur bloc trouvé, on enregistre un vecteur mouvement qui correspond au déplacement du bloc de l'image de référence à l'image courante : c'est l'estimation de mouvement. 
 
-![champdemouvement](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/champdemouvement.PNG)
+![champdemouvement](/imagesRapport/champdemouvement.PNG)
 
 
 
@@ -58,7 +58,7 @@ Pour chaque meilleur bloc trouvé, on enregistre un vecteur mouvement qui corres
 
 La compensation du mouvement est un algorithme utilisé dans un décodeur. Le but de la compensation de mouvement est récréer l'image courante à partir de l'image de référence et du champ de vecteurs. 
 
-![image3_comparaison2](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/image3_comparaison2.png)
+![image3_comparaison2](/imagesRapport/image3_comparaison2.png)
 
 
 On observe quelques différences aux endroits où le déplacement a été le plus important. 
@@ -68,7 +68,7 @@ On observe quelques différences aux endroits où le déplacement a été le plu
 Le mouvement n'étant pas pixelique, il est intéressant d'essayer d'augmenter la résolution de l'image de façon artificielle. Afin d'obtenir une précision au quart de pixel, il faut dans un premier temps créer une image vide 4 fois plus grande que celle de base. Dans un second temps, on remplace 1 pixel sur 4 de cette nouvelle image par les pixels de l'image de référence. Finalement, on réalise une moyenne pondérée par leur distance entre les 4 pixels existants.
 
 
-![imagex4_2](https://github.com/charlescerisier/BlockMatching/tree/master/imagesRapport/imagex4_2.png)
+![imagex4_2](/imagesRapport/imagex4_2.png)
 
 
 Cette nouvelle image, précise au quart de pixel peut être réinjectée dans un algorithme de block matching pour augmenter la précision.
